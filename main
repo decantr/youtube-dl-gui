@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+import tkinter
+
+
+class app(tkinter.Frame):
+	def __init__(self, master=None):
+		tkinter.Frame.__init__(self, master)
+		self.master.title('test')
+		self.grid()
+		self.create()
+
+	def create(self):
+		self.btn = tkinter.Button(self, text='bye', command=self.quit)
+		self.btn.grid()
+
+app().mainloop()
