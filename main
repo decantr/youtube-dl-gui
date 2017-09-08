@@ -1,24 +1,23 @@
 #!/usr/bin/python3
 import tkinter
+from tkinter import Label, Button, Entry, Frame
 
 
 class app(tkinter.Frame):
 	def __init__(self, master=None):
-		tkinter.Frame.__init__(self, master)
+		Frame.__init__(self, master)
 		self.master.title('test')
 		self.grid()
 		self.create()
 
 	def create(self):
-		self.lbl = tkinter.Label(self, text='enter the url')
+		self.lbl = Label(self, text='enter the url')
 		self.lbl.grid(columnspan=2, column=0, row=0)
-		self.url = tkinter.Entry(self, text='url')
+		self.url = Entry(self, text='url')
 		self.url.grid(row=2,columnspan=2)
-		self.btnv = tkinter.Button(self, text='video', command=lambda:
-														self.dl(self.url.get()))
+		self.btnv = Button(self, text='video', command=lambda: self.dl())
 		self.btnv.grid(row=3,column=0)
-		self.btna = tkinter.Button(self, text='audio', command=lambda:
-														self.dl(self.url.get()))
+		self.btna = Button(self, text='audio', command=lambda: self.dl())
 		self.btna.grid(row=3,column=1)
 
 	def dl(self, url):
