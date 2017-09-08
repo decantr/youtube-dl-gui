@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-import tkinter
-from tkinter import Label, Button, Entry, Frame
+from tkinter import Button, Entry, Frame, Label
+from youtube_dl import YoutubeDL as ytdl
 
 
-class app(tkinter.Frame):
+class app(Frame):
 	def __init__(self, master=None):
 		Frame.__init__(self, master)
 		self.master.title('test')
@@ -12,13 +12,11 @@ class app(tkinter.Frame):
 
 	def create(self):
 		self.lbl = Label(self, text='enter the url')
-		self.lbl.grid(columnspan=2, column=0, row=0)
-		self.url = Entry(self, text='url')
-		self.url.grid(row=2,columnspan=2)
+		self.lbl.grid(columnspan=2)
+		self.url = Entry(self)
+		self.url.grid(row=1, columnspan=2, sticky='ew')
 		self.btnv = Button(self, text='video', command=lambda: self.dl())
-		self.btnv.grid(row=3,column=0)
-		self.btna = Button(self, text='audio', command=lambda: self.dl())
-		self.btna.grid(row=3,column=1)
+		self.btnv.grid(row=2, columnspan=2)
 
 	def dl(self):
 		opts = {
@@ -28,6 +26,7 @@ class app(tkinter.Frame):
 				'preferredcodec': 'mp3',
 			}]
 		}
-		youtube_dl.YoutubeDL(opts).download([self.url.get()])
+		ytdl(opts).download([self.url.get()])
+
 
 app().mainloop()
