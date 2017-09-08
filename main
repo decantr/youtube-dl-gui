@@ -20,7 +20,14 @@ class app(tkinter.Frame):
 		self.btna = Button(self, text='audio', command=lambda: self.dl())
 		self.btna.grid(row=3,column=1)
 
-	def dl(self, url):
-		print(url)
+	def dl(self):
+		opts = {
+			'format': 'bestaudio/best',
+			'postprocessors': [{
+				'key': 'FFmpegExtractAudio',
+				'preferredcodec': 'mp3',
+			}]
+		}
+		youtube_dl.YoutubeDL(opts).download([self.url.get()])
 
 app().mainloop()
