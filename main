@@ -31,4 +31,7 @@ class app(Frame):
 		self.url.delete(0, 'end')
 
 
-app().mainloop()
+if __name__ == "__main__":
+	root = Tk()
+	app(root).pack(expand=True, fill='both')
+	root.mainloop()
