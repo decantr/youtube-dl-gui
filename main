@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-from tkinter import Button, Entry, Frame, Label
+from tkinter import Button, Entry, Frame, Label, Tk
 from youtube_dl import YoutubeDL as ytdl
 
 
 class app(Frame):
-	def __init__(self, master=None):
+	def __init__(self, master):
 		Frame.__init__(self, master)
 		self.master.title('test')
 		self.grid()
@@ -14,8 +14,9 @@ class app(Frame):
 		self.lbl = Label(self, text='enter the url')
 		self.lbl.grid(columnspan=2)
 		self.url = Entry(self)
+		self.url.focus()
 		self.url.grid(row=1, columnspan=2, sticky='ew')
-		self.btnv = Button(self, text='video', command=lambda: self.dl())
+		self.btnv = Button(self, text='video', command=self.dl)
 		self.btnv.grid(row=2, columnspan=2)
 
 	def dl(self):
