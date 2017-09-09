@@ -7,14 +7,16 @@ class app(Frame):
     def __init__(self, master):
         Frame.__init__(self, master)
         self.master.title('test')
-        self.grid()
+
         self.lbl = Label(self, text='enter the url')
-        self.lbl.grid(columnspan=2)
         self.url = Entry(self)
+        self.btn = Button(self, text='download', command=self.dl)
+
         self.url.focus()
         self.url.grid(row=1, columnspan=2, sticky='ew')
-        self.btnv = Button(self, text='video', command=self.dl)
-        self.btnv.grid(row=2, columnspan=2)
+        self.lbl.grid(columnspan=2)
+        self.grid()
+        self.btn.grid(row=2, columnspan=2)
 
     def dl(self):
         opts = {
