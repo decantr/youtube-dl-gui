@@ -8,9 +8,6 @@ class app(Frame):
         Frame.__init__(self, master)
         self.master.title('test')
         self.grid()
-        self.create()
-
-    def create(self):
         self.lbl = Label(self, text='enter the url')
         self.lbl.grid(columnspan=2)
         self.url = Entry(self)
