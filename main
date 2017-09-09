@@ -28,6 +28,7 @@ class app(Frame):
 			}]
 		}
 		ytdl(opts).download([self.url.get()])
+		self.url.delete(0, 'end')
 
 
 app().mainloop()
